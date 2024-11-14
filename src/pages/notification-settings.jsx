@@ -21,7 +21,7 @@ const NotificationSettings = () => {
   return (
     <>
       <div className="flex justify-center">
-        <Card className="w-1/2 pl-5">
+        <Card className="w-1/2">
           <CardHeader className="pb-3">
             <CardTitle className="pb-5">Notifications</CardTitle>
             <CardDescription>Enable notifications:</CardDescription>

@@ -9,7 +9,12 @@ const HeaderSidebar = () => {
       <header className="flex justify-between h-20 bg-black fixed inset-x-0	inset-y-0	z-100">
         <div className="flex justify-center items-center pl-6">
           <Link to="/courses">
+          <div className="relative">
             <img className="logo" src="/CustomNavigationLogo.png" />
+                <div className="text-white text-3xl absolute top-[-1px] right-[-18px]">
+                  +
+                </div>
+              </div>
           </Link>
         </div>
 

@@ -80,14 +80,26 @@ const LoginPage = () => {
         </section>
         <div className="w-1/2  bg-[rgb(33,97,172)] flex items-center justify-center min-h-screen">
           <section className="text-center flex">
-            <img src="/logo.png" className="h-40" />
+            <div className="flex flex-col justify-center text-white text-8xl font-black border-2 p-2 sm:text-5xl lg:text-7xl">
+              <span className="mb-[-16px]">
+                CU
+              </span>
+              <span>
+                NY
+              </span>
+            </div>
+
+            {/* <img src="/logo.png" className="h-40" /> */}
             <div className="flex justify-center items-center flex-col">
-              <h1
-                className="flex flex-col items-center justify-center text-4xl sm:text-4xl lg:text-6xl 
-          tracking-tighter py-4 text-white pl-6"
-              >
-                Blackboard+
-              </h1>
+              <div className="relative">
+                <h1
+                  className="flex items-center justify-center text-4xl sm:text-5xl lg:text-7xl 
+          tracking-tighter py-4 text-white pl-2 font-bold"
+                >
+                  Blackboard
+                  <span className="absolute top-[-1%] right-[-13%]">+</span>
+                </h1>
+              </div>
             </div>
           </section>
         </div>
