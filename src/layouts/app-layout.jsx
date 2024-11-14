@@ -6,7 +6,7 @@ const AppLayout = () => {
   return (
     <div>
       <HeaderSidebar />
-      <div className="content pt-20 pl-24">
+      <div className="content pt-24 pl-28 pr-4">
         <Outlet />
       </div>
     </div>

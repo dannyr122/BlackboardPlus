@@ -6,8 +6,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./layouts/app-layout";
 import LoginLayout from "./layouts/login-layout";
 import Courses from "./pages/courses";
-import { ThemeProvider } from "./components/theme-provider";
 import LoginPage from "./pages/login";
+import Grades from "./pages/grades";
+import CalendarPage from "./pages/calendar";
+import ProtectedRoute from "./components/protected";
+import NotificationSettings from "./pages/notification-settings";
+import VerifyBlackboard from "./pages/verify-blackboard";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +19,35 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/courses",
-        element: <Courses />,
+        element: (
+          <ProtectedRoute>
+            <Courses />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/grades",
+        element: (
+          <ProtectedRoute>
+            <Grades />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/calendar",
+        element: (
+          <ProtectedRoute>
+            <CalendarPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/notifications",
+        element: (
+          <ProtectedRoute>
+            <NotificationSettings />
+          </ProtectedRoute>
+        ),
       },
     ],
   },
@@ -24,18 +56,24 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <LoginPage />,
+        element: (
+            <LoginPage />
+        ),
+      },
+      {
+        path: "/blackboard-verification",
+        element: (
+          <ProtectedRoute>
+            <VerifyBlackboard />
+          </ProtectedRoute>
+        ),
       },
     ],
-  }
+  },
 ]);
 
 function App() {
-  return (
-    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-      <RouterProvider router={router} />
-    </ThemeProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
