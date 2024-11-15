@@ -9,9 +9,11 @@ import Courses from "./pages/courses";
 import LoginPage from "./pages/login";
 import Grades from "./pages/grades";
 import CalendarPage from "./pages/calendar";
-import ProtectedRoute from "./components/protected";
+import ProtectedRoute from "./components/protected-route";
 import NotificationSettings from "./pages/notification-settings";
 import VerifyBlackboard from "./pages/verify-blackboard";
+import VerifiedRoute from "./components/verified-route";
+
 
 const router = createBrowserRouter([
   {
@@ -20,33 +22,33 @@ const router = createBrowserRouter([
       {
         path: "/courses",
         element: (
-          <ProtectedRoute>
+          <VerifiedRoute>
             <Courses />
-          </ProtectedRoute>
+          </VerifiedRoute>
         ),
       },
       {
         path: "/grades",
         element: (
-          <ProtectedRoute>
+          <VerifiedRoute>
             <Grades />
-          </ProtectedRoute>
+          </VerifiedRoute>
         ),
       },
       {
         path: "/calendar",
         element: (
-          <ProtectedRoute>
+          <VerifiedRoute>
             <CalendarPage />
-          </ProtectedRoute>
+          </VerifiedRoute>
         ),
       },
       {
         path: "/notifications",
         element: (
-          <ProtectedRoute>
+          <VerifiedRoute>
             <NotificationSettings />
-          </ProtectedRoute>
+          </VerifiedRoute>
         ),
       },
     ],

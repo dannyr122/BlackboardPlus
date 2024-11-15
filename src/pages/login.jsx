@@ -6,8 +6,7 @@ import {
   SignedIn,
   SignedOut,
   SignIn,
-  SignInButton,
-  UserButton,
+  SignUp,
   useUser,
 } from "@clerk/clerk-react";
 import { BarLoader } from "react-spinners";
@@ -45,9 +44,9 @@ const LoginPage = () => {
           <div className="flex items-center justify-center h-full">
             <Card className="py-14 px-16 border-2">
               <CardHeader>
-                <CardTitle> Sign In: </CardTitle>
+                <CardTitle> Login: </CardTitle>
               </CardHeader>
-              <CardContent>Sign in as a student or teacher.</CardContent>
+              <CardContent>Login as a student or teacher.</CardContent>
               <div className="flex justify-center pt-5">
                 <div>
                   <SignedOut>
@@ -59,7 +58,7 @@ const LoginPage = () => {
                     </Button>
                   </SignedOut>
                   <SignedIn>
-                    <Navigate to="/courses" />
+                    <Navigate to="/blackboard-verification" />
                   </SignedIn>
                 </div>
               </div>
@@ -71,9 +70,15 @@ const LoginPage = () => {
               className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
               onClick={handleOverlayClick}
             >
-              <SignIn
-                signUpForceRedirectUrl="/courses"
-                fallbackRedirectUrl="/courses"
+              {/* <SignIn
+                signUpForceRedirectUrl="/blackboard-verification"
+                forceRedirectUrl="/blackboard-verification"
+                fallbackRedirectUrl="/blackboard-verification"
+              /> */}
+              <SignUp
+                signUpForceRedirectUrl="/blackboard-verification"
+                forceRedirectUrl="/blackboard-verification"
+                fallbackRedirectUrl="/blackboard-verification"
               />
             </div>
           )}
@@ -84,8 +89,6 @@ const LoginPage = () => {
               <span className="mb-[-16px]">CU</span>
               <span>NY</span>
             </div>
-
-            {/* <img src="/logo.png" className="h-40" /> */}
             <div className="flex justify-center items-center flex-col">
               <div className="relative">
                 <h1
