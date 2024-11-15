@@ -15,8 +15,16 @@ import { BarLoader } from "react-spinners";
 const Courses = () => {
   const { isLoaded } = useUser();
 
-  useUser;
-
+  
+  if (!isLoaded) {
+    console.log("courses")
+    return (
+      <div className="h-96 flex items-end">
+        <BarLoader width={"100%"} color="#080808" />
+      </div>
+    );
+  }
+  
   const {
     fn: fnCourses,
     data: courses,
@@ -31,6 +39,7 @@ const Courses = () => {
     }
   }, [isLoaded]);
 
+
   return (
     <>
       <h1 className="font-bold text-4xl sm:text-6xl pb-10 pl-10">Courses</h1>
@@ -40,7 +49,7 @@ const Courses = () => {
           <div>
             {courses?.length ? (
               courses.map((course) => {
-                return <span>{course.courses.name}</span>
+                return <span>{course.courses.name} </span>
               })
             ): (
               <div> No Courses Found </div>

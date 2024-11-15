@@ -43,6 +43,7 @@ const VerifyBlackboard = () => {
   }, [user]);
 
   if (!isLoaded) {
+    console.log("verify")
     return (
       <div className="h-96 flex items-end">
         <BarLoader width={"100%"} color="#080808" />
