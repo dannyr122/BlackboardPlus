@@ -56,9 +56,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: (
-            <LoginPage />
-        ),
+        element: <LoginPage />,
       },
       {
         path: "/blackboard-verification",

@@ -1,29 +1,18 @@
-import { Navigate, useLocation } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-const ProtectedRoute = ({ children }) => {
-  const { isSignedIn, isLoaded, user } = useUser();
-  const { pathname } = useLocation();
+function ProtectedRoute({ children }) {
+  const { isSignedIn } = useUser();
+  const navigate = useNavigate();
 
-  if (isLoaded && !isSignedIn && isSignedIn !== undefined) {
-    return <Navigate to="/?sign-in=true" />;
-  }
+  useEffect(() => {
+    if (!isSignedIn) {
+      navigate("/?sign-in=true");
+    }
+  }, [isSignedIn, navigate]);
 
-  if (
-    user !== undefined &&
-    !user?.unsafeMetadata?.role &&
-    pathname !== "/"
-  ) {
-    return <Navigate to="/" />;
-  }
-
-  if (isLoaded && isSignedIn && pathname === "/") {
-    return <Navigate to="/courses" />; // Redirect to the dashboard or another page
-  }
-
-  return children;
-
-  
-};
+  return isSignedIn ? children : null;
+}
 
 export default ProtectedRoute;

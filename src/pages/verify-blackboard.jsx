@@ -23,22 +23,18 @@ const VerifyBlackboard = () => {
       <main className="flex min-h-screen justify-start items-center flex-col">
         <Card className="py-24 px-20 border-2 mt-[25vh] flex flex-col gap-4">
           <div>
-          <CardHeader>
-            <CardTitle> Sign In to Cunyfirst </CardTitle>
-          </CardHeader>
-
+            <CardHeader>
+              <CardTitle> Sign In to Cunyfirst </CardTitle>
+            </CardHeader>
           </div>
           <div>
-          <CardContent className="flex flex-col gap-4 pb-4">
-            <Input type="text" placeholder="Email" className="flex-1" />
-            <Input type="text" placeholder="Password" className="flex-1" />
-          </CardContent>
-          <div className="flex justify-start pl-6">
-
+            <CardContent className="flex flex-col gap-4 pb-4">
+              <Input type="text" placeholder="Email" className="flex-1" />
+              <Input type="text" placeholder="Password" className="flex-1" />
+            </CardContent>
+            <div className="flex justify-start pl-6">
               <Button variant="outline">Sign in </Button>
-
-          </div>
-
+            </div>
           </div>
         </Card>
       </main>
